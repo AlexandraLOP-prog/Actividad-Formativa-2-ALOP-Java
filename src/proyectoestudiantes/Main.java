@@ -1,46 +1,54 @@
 package proyectoestudiantes;
 
+// Clase principal donde se prueban las clases derivadas
 public class Main {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		        // Crear objetos de la clase Estudiante
-		        Estudiante estudiante1 =
-		                new Estudiante("Alexandra", 20, 95);
+        // Crear un estudiante de licenciatura
+        EstudianteLicenciatura estudiante1 =
+                new EstudianteLicenciatura(
+                        "Alexandra",
+                        20,
+                        95,
+                        "Ingenieria en Software");
 
-		        Estudiante estudiante2 =
-		                new Estudiante("Armin", 19, 68);
+        // Crear un estudiante de posgrado
+        EstudiantePosgrado estudiante2 =
+                new EstudiantePosgrado(
+                        "Armin",
+                        25,
+                        92,
+                        "Inteligencia Artificial");
 
-		        Estudiante estudiante3 =
-		                new Estudiante("Claire", 21, 88);
+        // Mostrar información del estudiante de licenciatura
+        System.out.println("===== ESTUDIANTE DE LICENCIATURA =====");
 
-		        // Mostrar información inicial
-		        System.out.println("LISTA DE ESTUDIANTES");
+        estudiante1.mostrarInformacion();
 
-		        estudiante1.mostrarInformacion();
-		        estudiante2.mostrarInformacion();
-		        estudiante3.mostrarInformacion();
+        if (estudiante1.aprobo()) {
+            System.out.println("Resultado: El estudiante aprobo.");
+        } else {
+            System.out.println("Resultado: El estudiante no aprobo.");
+        }
 
-		        // Actualizar promedio
-		        estudiante2.actualizarPromedio(75);
+        estudiante1.realizarServicioSocial();
 
-		        System.out.println("PROMEDIO ACTUALIZADO");
+        System.out.println();
 
-		        estudiante2.mostrarInformacion();
+        // Mostrar información del estudiante de posgrado
+        System.out.println("===== ESTUDIANTE DE POSGRADO =====");
 
-		        // Verificar aprobación
-		        if (estudiante1.aprobo()) {
-		            System.out.println("Alexandra aprobo.");
-		        }
+        estudiante2.mostrarInformacion();
 
-		        if (estudiante2.aprobo()) {
-		            System.out.println("Armin aprobo.");
-		        }
+        if (estudiante2.aprobo()) {
+            System.out.println("Resultado: El estudiante aprobo.");
+        } else {
+            System.out.println("Resultado: El estudiante no aprobo.");
+        }
 
-		        if (estudiante3.aprobo()) {
-		            System.out.println("Claire aprobo.");
-		        }
-		    }
+        estudiante2.realizarInvestigacion();
 
-		}
-	
+    }
+
+}
